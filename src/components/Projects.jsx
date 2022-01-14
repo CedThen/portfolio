@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { routeNames } from './shared';
 import { Animated } from 'react-animated-css'
 
-const AnimatedCard = ({ children, delay }) => <Animated animationInDelay={delay} animationIn="fadeInUp" animationInDuration={600} isVisible={true}>{children}</Animated>
+const AnimatedCard = ({ children, delay }) => <Animated animationInDelay={delay} animationIn="fadeIn" animationInDuration={600} isVisible={true}>{children}</Animated>
 
 
 const Projects = () => {
@@ -19,7 +19,7 @@ const Projects = () => {
         {data.map((d, index) => {
           return (
             <AnimatedCard key={index} delay={index * 250}>
-              <ProjectCard data={d} />
+              <ProjectCard data={d} key={index} />
             </AnimatedCard>
           )
         })}

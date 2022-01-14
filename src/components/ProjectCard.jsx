@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StyledCard } from './styledComponents'
+import { StyledCard, size, device } from './styledComponents'
 const textColor = '#19273e'
 
 const CenteredDiv = styled.div`

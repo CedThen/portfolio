@@ -8,22 +8,47 @@ const returnColor = '#afcbfa'
 export const secondaryColorTransparent = 'rgba(161, 181, 214, .55)'
 import BgPic from '../assets/backgroundPic.jpg';
 
+export const size = {
+  mobileS: '320px',
+  mobileM: '375px',
+  mobileL: '425px',
+  tablet: '768px',
+  laptop: '1024px',
+  laptopL: '1440px',
+  desktop: '2560px'
+}
+
+export const device = {
+  mobileS: `(max-width: ${size.mobileS})`,
+  mobileM: `(max-width: ${size.mobileM})`,
+  mobileL: `(max-width: ${size.mobileL})`,
+  tablet: `(max-width: ${size.tablet})`,
+  laptop: `(max-width: ${size.laptop})`,
+  laptopL: `(max-width: ${size.laptopL})`,
+  desktop: `(max-width: ${size.desktop})`,
+  desktopL: `(max-width: ${size.desktop})`
+};
+
 export const Root = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  width: 100%;
+  
   font-family: 'Source Sans Pro', sans-serif;
-  position: fixed;
+  // position: fixed;
   
   background-image: url('${BgPic}');
-  filter: sepia(20%);
-  
   background-repeat: no-repeat;
   background-size: cover;  
+  background-color: black;
+  filter: sepia(20%);
   color: ${titleColor}
 
+  // @media ${device.desktop} {
+  //   position: fixed;
+  // }
 `;
 
 const UnderlinedText = styled.div`
@@ -90,15 +115,20 @@ export const SubTitle = styled(ItalicText)`
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  height: 75vh;
-  width: 95vw;
+  height: 80%;
+  width: 95%;
   column-gap: 2%;
   box-sizing: border-box;
   margin-top: 2%;
+
+  // @media ${device.mobileL} {
+    
+  //   grid-template-columns: 1fr;
+  //   grid-template-rows: 1fr 1fr 1fr 1fr;
+  // }
 `
 
 export const StyledCard = styled.div`
-  // border-radius: 15px;
   height: 95%;
   width: 100%;
 

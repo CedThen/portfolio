@@ -34,12 +34,11 @@ const Home = () => {
   );
 };
 
+
 const styles = {
   selectionContainer: {
-    height: '100%',
-    width: '100vw',
-    display: 'grid',
-    gridTemplateColumns: '1fr 4fr',
+    position: 'fixed',
+    left: '5%',
     bottom: '5%',
     fontSize: 50,
     color: secondaryColor,
