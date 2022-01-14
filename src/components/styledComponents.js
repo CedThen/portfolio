@@ -35,6 +35,7 @@ export const Root = styled.div`
   align-items: center;
   min-height: 100vh;
   width: 100%;
+  box-sizing: border-box;
   
   font-family: 'Source Sans Pro', sans-serif;
   // position: fixed;
@@ -58,7 +59,7 @@ export const Grid = styled.div`
   width: 95%;
   column-gap: 2%;
   box-sizing: border-box;
-  margin-top: 2%;
+  
 
   @media ${device.mobileL} {
     grid-template-columns: 1fr;
@@ -68,8 +69,6 @@ export const Grid = styled.div`
 
 export const StyledCard = styled.div`
   height: 95%;
-  // width: 100%;
-
   display: grid;
   grid-template-rows: 0.5fr 2fr 4fr;
   align-items: center;
@@ -172,6 +171,8 @@ const ItalicText = styled.h1`
 
 export const Title = styled(ItalicText)`
   font-size: 110px;
+  // padding-bottom: 1%;
+  
   @media ${device.mobileL} {
     font-size: 80px;    
   }
