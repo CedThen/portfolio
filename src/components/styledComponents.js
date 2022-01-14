@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 export const titleColor = '#2A4268';
 export const secondaryColor = '#A1B5D6';
+const returnColor = '#afcbfa'
 export const secondaryColorTransparent = 'rgba(161, 181, 214, .55)'
 import BgPic from '../assets/backgroundPic.jpg';
 
@@ -54,7 +55,7 @@ const ReturnStyling = styled(UnderlinedText)`
   position: fixed;
   top: 40px;
   left: 50px;
-  color: ${secondaryColor}
+  color: ${returnColor}
 `;
 
 const StyledLeftArrow = styled.div`
@@ -93,7 +94,7 @@ export const Grid = styled.div`
   width: 95vw;
   column-gap: 2%;
   box-sizing: border-box;
-  margin-top: 0.5%;
+  margin-top: 2%;
 `
 
 export const StyledCard = styled.div`

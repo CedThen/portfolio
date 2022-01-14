@@ -41,7 +41,7 @@ const styles = {
     display: 'grid',
     gridTemplateColumns: '1fr 4fr',
     bottom: '5%',
-    fontSize: 40,
+    fontSize: 50,
     color: secondaryColor,
   },
   clickableContainer: {
