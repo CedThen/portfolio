@@ -68,7 +68,7 @@ export const Grid = styled.div`
 
 export const StyledCard = styled.div`
   height: 95%;
-  width: 100%;
+  // width: 100%;
 
   display: grid;
   grid-template-rows: 0.5fr 2fr 4fr;
@@ -86,11 +86,11 @@ export const StyledCard = styled.div`
     max-width: 400px;
   }
   @media ${device.laptop} {
-    max-width: 225px;    
+    max-width: 240px;    
   }
-  @media ${device.laptopL} {
-    max-width: 300px;    
-  }
+  // @media ${device.laptopL} {
+  //   max-width: 300px;    
+  // }
 `
 
 const UnderlinedText = styled.div`
@@ -174,6 +174,12 @@ export const Title = styled(ItalicText)`
   font-size: 110px;
   @media ${device.mobileL} {
     font-size: 80px;    
+  }
+  @media ${device.laptop} {
+    font-size: 90px;    
+  }
+  @media ${device.laptopL} {
+    font-size: 100px;    
   }
 `
 

@@ -1,11 +1,12 @@
 import React from 'react'
-import { Root, Title, ReturnButton } from './styledComponents'
+import { Root, Title, ReturnButton, device } from './styledComponents'
 import { useNavigate } from 'react-router-dom'
 import { routeNames } from './shared'
 import styled from 'styled-components'
 import { Document, Page, pdfjs } from 'react-pdf'
 import Resume from '../assets/Resume2021.pdf'
 import ProfPic from '../assets/profPic.jpg'
+import { useMediaQuery } from 'react-responsive'
 const titleColor = '#2A4268'
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -16,6 +17,8 @@ const Img = styled.div`
   display: inline-block;
   position: relative;
   border-radius: 60%;
+  border: 1px black solid;
+  
   overflow: hidden;
   height: 230px;
   width: 230px;
@@ -27,24 +30,35 @@ const Content = styled.div`
   padding: 20px;
 `
 
-const AboutMeGrid = styled.div`
+const Container = styled.div`
   height: 95%;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  
   box-sizing: border-box;
   padding: 0px 20px;
   font-size: 30px;  
   font-weight: bold;
-  // font-style: italic
+  
+  @media ${device.mobileL} {
+    display: block
+  }
+  @media ${device.laptop} {
+    font-size: 20px;
+  }
 `
 
-const GridItem = styled.div`
+const Item = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0px 0px 50px 0px;
+  width: auto;
+  @media ${device.mobileL} {
+    display: block
+  }
 `
 
 const Text = styled.div`
@@ -55,32 +69,57 @@ const Text = styled.div`
   width: 100%;
 `
 
+const Pdf = styled.div`
+display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px -2px 5px ${titleColor}
+  // margin-left: 15%;
+  width: auto;
+
+  @media ${device.mobileL} {
+    width: 300px;
+    margin-left: 0;
+  }
+
+  @media ${device.laptop} {
+    width: 500px;
+  }
+`
 
 const AboutMe = () => {
+  const [isLoaded, setIsLoaded] = React.useState(false)
   const navigate = useNavigate()
+  const isMobile = useMediaQuery({ query: `(max-width: 425px)` })
+  const isLaptop = useMediaQuery({ query: `(max-width: 1024px)` })
+  const pageWidth = isMobile ? 300 : isLaptop ? 500 : 600
   return (
     <Root>
       <Title>About Me</Title>
       <ReturnButton onClick={() => navigate(routeNames.HOME)} />
-      <AboutMeGrid>
-        <GridItem >
-          <div style={{ boxShadow: `5px -2px 5px ${titleColor}` }}>
-            <a href={Resume} target="_blank" rel="noreferrer noopener"> <Document file={Resume}><Page pageNumber={1} /></Document></a>
-          </div>
-        </GridItem>
-        <GridItem>
+      <Container>
+        <Pdf>
+          <a href={Resume} target="_blank" rel="noreferrer noopener" style={{ hidden: isLoaded }}>
+            <Document file={Resume} onLoadSuccess={() => setIsLoaded(true)}>
+              <Page width={pageWidth} pageNumber={1} />
+            </Document>
+          </a>
+        </Pdf>
+
+        <Item >
           <Content >
             <Text>
-              <br />
+              {!isMobile && !isLaptop && <br />}
               Hi! Welcome to my portfolio.
               <br />
               <br />
-              I&#39;m a full stack web developer with a passion for making things work. That moment when everything comes together and runs smoothly - that is why I climb mountains.
+              I&#39;m a full stack web developer with a passion for <span style={{ color: 'white' }}>making things work</span>. That moment when everything comes together and runs smoothly - that is why I climb mountains.
             </Text>
           </Content>
           <Img><img className='profPic' src={ProfPic} width={300} /></Img>
-        </GridItem>
-      </AboutMeGrid>
+        </Item>
+      </Container>
     </Root>)
 }
 

@@ -30,8 +30,8 @@ const Title = styled(CenteredDiv)`
   }
 `
 
-const Graphic = styled(CenteredDiv)`  
-  height: 100%;
+const Graphic = styled.div`  
+  // height: auto;
 `
 
 const Content = styled.div`
@@ -59,18 +59,18 @@ const Item = styled(CenteredDiv)`
 
 const Img = styled.img`
   max-width: 350px;
-  max-height: 200px;
+  // max-height: 200px;
   src= ${(props) => props.src}
 
   @media ${device.mobileL} {
     max-width: 300px;
   }
-  @media ${device.laptop} ${device.laptopL} {
+  @media ${device.laptop} {
     max-width: 180px;
   }
-  @media ${device.laptopL} {
-    max-width: 250px;
-  }
+  // @media ${device.laptopL} {
+  //   max-width: 250px;
+  // }
 `
 
 const Link = ({ children, url }) => (<a href={url} target="_blank" rel="noreferrer noopener">{children}</a>)
