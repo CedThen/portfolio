@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StyledCard, size, device } from './styledComponents'
+
 const textColor = '#19273e'
 
 const CenteredDiv = styled.div`
@@ -16,6 +17,17 @@ const Title = styled(CenteredDiv)`
   font-weight: bold;
   padding: 10px;
   font-style: italic;
+
+  @media ${device.mobileL} {
+    font-size: 20px;
+    padding: 5px; 
+  }
+  @media ${device.laptop} {
+    font-size: 20px;
+  }
+  @media ${device.laptopL} {
+    font-size: 25px;
+  }
 `
 
 const Graphic = styled(CenteredDiv)`  
@@ -26,24 +38,50 @@ const Content = styled.div`
   display: grid;
   grid-template-rows: 0.25fr 3fr 1.5fr;
   height: 90%;
-  font-size: 22px;
+  // font-size: 22px;
   // font-style: italic;
   font-weight: bold;
   color: ${textColor};
 `
 
 const Item = styled(CenteredDiv)`
+  font-size: 22px;
+  @media ${device.mobileL} {
+    font-size: 11px;
+  }
+  @media ${device.laptop}  {
+    font-size: 15px;
+  }
+  @media ${device.laptopL} {
+    font-size: 20px;
+  }
+`
 
+const Img = styled.img`
+  max-width: 350px;
+  max-height: 200px;
+  src= ${(props) => props.src}
+
+  @media ${device.mobileL} {
+    max-width: 300px;
+  }
+  @media ${device.laptop} ${device.laptopL} {
+    max-width: 180px;
+  }
+  @media ${device.laptopL} {
+    max-width: 250px;
+  }
 `
 
 const Link = ({ children, url }) => (<a href={url} target="_blank" rel="noreferrer noopener">{children}</a>)
 
 const ProjectCard = ({ data }) => {
+
   return (
     <StyledCard >
       <Title>{data.title}</Title>
       <Graphic>
-        <img src={data.graphic} height="200px" />
+        <Img src={data.graphic} />
       </Graphic>
       <Content >
         <Item style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
@@ -61,7 +99,7 @@ const ProjectCard = ({ data }) => {
             width: '100%',
             height: '0px'
           }} />
-          <Item style={{ fontSize: '20px' }}>{data.stack}</Item>
+          <Item >{data.stack}</Item>
         </div>
       </Content>
     </StyledCard>

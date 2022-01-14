@@ -24,7 +24,7 @@ export const data = [
     stack: 'React, PostgresDB, Node, Express, Sequelize, Axios, Material-UI, React-query',
   },
   {
-    title: 'Sheaves mobile app',
+    title: 'Sheaves mobile',
     description: 'The companion mobile app to Sheaves. Workers can view their assignments and be notified when their assignment date approaches.',
     description2: 'Workers can request to trade duties with other workers, which will notify managers using Sheaves.',
     github: 'https://github.com/House-on-a-Rock/tjc-scheduling-mobile',
