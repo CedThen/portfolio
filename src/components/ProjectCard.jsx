@@ -32,6 +32,9 @@ const Title = styled(CenteredDiv)`
 
 const Graphic = styled.div`  
   // height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 const Content = styled.div`

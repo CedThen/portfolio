@@ -171,8 +171,6 @@ const ItalicText = styled.h1`
 
 export const Title = styled(ItalicText)`
   font-size: 110px;
-  // padding-bottom: 1%;
-  
   @media ${device.mobileL} {
     font-size: 80px;    
   }
