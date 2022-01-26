@@ -93,7 +93,7 @@ const AboutMe = () => {
   const navigate = useNavigate()
   const isMobile = useMediaQuery({ query: `(max-width: 425px)` })
   const isLaptop = useMediaQuery({ query: `(max-width: 1024px)` })
-  const pageWidth = isMobile ? 300 : isLaptop ? 500 : 600
+  const pageWidth = isMobile ? 300 : isLaptop ? 500 : 560
   return (
     <Root>
       <Title>About Me</Title>

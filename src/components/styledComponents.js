@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
 export const titleColor = '#2A4268';
 export const secondaryColor = '#A1B5D6';
+export const textColor = '#19273e'
 const returnColor = '#afcbfa'
 export const secondaryColorTransparent = 'rgba(161, 181, 214, .55)'
 import BgPic from '../assets/backgroundPic.jpg';
@@ -65,6 +66,10 @@ export const Grid = styled.div`
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
   }
+`
+
+export const StyledButton = styled.a`
+  color: ${textColor};
 `
 
 export const StyledCard = styled.div`

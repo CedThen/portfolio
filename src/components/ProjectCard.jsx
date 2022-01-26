@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StyledCard, size, device } from './styledComponents'
+import { StyledCard, size, device, StyledButton, textColor } from './styledComponents'
 
-const textColor = '#19273e'
+
 
 const CenteredDiv = styled.div`
   display: flex;
@@ -61,7 +61,7 @@ const Item = styled(CenteredDiv)`
 `
 
 const Img = styled.img`
-  max-width: 350px;
+  max-width: 325px;
   // max-height: 200px;
   src= ${(props) => props.src}
 
@@ -71,12 +71,10 @@ const Img = styled.img`
   @media ${device.laptop} {
     max-width: 180px;
   }
-  // @media ${device.laptopL} {
-  //   max-width: 250px;
-  // }
+  
 `
 
-const Link = ({ children, url }) => (<a href={url} target="_blank" rel="noreferrer noopener">{children}</a>)
+const Link = ({ children, url }) => (<StyledButton href={url} target="_blank" rel="noreferrer noopener">{children}</StyledButton>)
 
 const ProjectCard = ({ data }) => {
 
@@ -87,7 +85,7 @@ const ProjectCard = ({ data }) => {
         <Img src={data.graphic} />
       </Graphic>
       <Content >
-        <Item style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+        <Item style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 15 }}>
           <Link url={data.github}>Github</Link>
           {data.link && <Item style={{ paddingLeft: '50px' }}><Link url={data.link}>Visit!</Link></Item>}
         </Item>
@@ -100,7 +98,9 @@ const ProjectCard = ({ data }) => {
           <hr style={{
             borderTop: `3px solid ${textColor}`,
             width: '100%',
-            height: '0px'
+            height: '0px',
+            marginTop: 10,
+            marginBottom: 10
           }} />
           <Item >{data.stack}</Item>
         </div>
