@@ -1,7 +1,7 @@
 import './app.css'
 import { data } from './Data'
 import ProjectCard from './components/ProjectCard';
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Header from './components/Header';
 import NavBar from './components/NavBar';
 import profPic from './assets/profPic.jpg'
@@ -9,16 +9,40 @@ import githubMark from './assets/github_mark.png'
 import linkedIn from './assets/LI-In-Bug.png'
 import Resume from './assets/Resume2021.pdf'
 import pdfIcon from './assets/pdfIcon.png'
+import foreground from './assets/fg.png'
+import background from './assets/bg.png'
+import { RingLoader } from 'react-spinners';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const projRef = useRef();
   const aboutRef = useRef();
+
+  async function cacheImages(imgs) {
+    const promises = imgs.map(src => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = resolve();
+        img.onerror = reject();
+      })
+    })
+    await Promise.all(promises)
+    setIsLoading(false)
+  }
+
+  useEffect(() => {
+    const imgs = [foreground, background]
+    cacheImages(imgs)
+  }, [])
+
+  const LoadingSpinner = () => <div className='h-screen w-full flex justify-center items-center bg-darkBlue'><RingLoader /></div>
 
   return (
     <div className='root' >
       <NavBar refs={{ projRef, aboutRef, }} />
       <div className="wrapper" id='wrapper'>
-        <Header />
+        {isLoading ? <LoadingSpinner /> : <Header />}
 
         <section className='bg-darkBlue sepia-[.2] py-40'>
           <div className='bg-lightGrey w-full md:w-3/4 mx-auto '>
