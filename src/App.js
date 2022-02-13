@@ -36,7 +36,7 @@ function App() {
     cacheImages(imgs)
   }, [])
 
-  const LoadingSpinner = () => <div className='h-screen w-full flex justify-center items-center bg-darkBlue'><RingLoader /></div>
+  const LoadingSpinner = () => <div className='h-screen w-full flex justify-center items-center bg-darkBlue'><RingLoader loading={isLoading} color="#A1B5D6" size={200} /></div>
 
   return (
     <div className='root' >
